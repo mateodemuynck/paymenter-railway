@@ -1,6 +1,6 @@
 # 💳 Paymenter for Railway
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/TO_CHANGE)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/7N7_F_?referralCode=sOFJyP)
 
 This is a containerized version of **Paymenter** specifically optimized for a seamless deployment on **Railway**. It features a smart initialization script that automatically configures the application upon the first launch.
 
