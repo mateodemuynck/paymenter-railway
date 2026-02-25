@@ -42,7 +42,6 @@ Dependencies :
 
 | Variable | Description |
 | :--- | :--- |
-| `APP_URL` | Your project URL (e.g., `https://your-project.up.railway.app`) **used during initialization**. |
 | `COMPANY_NAME` | Your company name **used during initialization**. |
 | `ADMIN_EMAIL` | The admin account e-mail **used during the initialization**. |
 | `ADMIN_PASSWORD` | The admin account password **used during the initialization**. |
