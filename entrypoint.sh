@@ -9,7 +9,7 @@ chmod +x /app/.github/docker/entrypoint.sh
 
 echo "Applying Railway tweaks..."
 
-if [ -f /app/storage/.railway_initialized ]; then
+if [ -f /app/storage/app/public/.railway_initialized ]; then
     echo "Initial Railway tweaks already applied, skipping..."
 else
     echo "Applying initial Railway tweaks..."
@@ -18,7 +18,7 @@ else
     php artisan db:seed --class=CustomPropertySeeder --force
     php artisan app:user:create "CHANGEME" "CHANGEME" "$ADMIN_EMAIL" "$ADMIN_PASSWORD" 1
     
-    touch /app/storage/.railway_initialized
+    touch /app/storage/app/public/.railway_initialized
 fi
 
 exec "$@"
