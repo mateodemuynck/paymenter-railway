@@ -1,0 +1,42 @@
+services:
+  database:
+    image: mariadb:lts
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - "paymenter_db:/var/lib/mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_PASSWORD}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+      MYSQL_DATABASE: "paymenter"
+      MYSQL_USER: "paymenter"
+  cache:
+    image: redis:alpine
+    restart: always
+  paymenter:
+    build: .
+    restart: always
+    ports:
+      - "80:80"
+    links:
+      - database
+      - cache
+    volumes:
+      - "paymenter_storage:/app/storage"
+    environment:
+      DB_PASSWORD: "${MYSQL_PASSWORD}"
+      APP_URL: "${APP_URL}"
+      APP_KEY: "${APP_KEY}"
+      COMPANY_NAME: "${COMPANY_NAME}"
+      ADMIN_EMAIL: "${ADMIN_EMAIL}"
+      ADMIN_PASSWORD: "${ADMIN_PASSWORD}"
+      APP_ENV: "production"
+      CACHE_STORE: "redis"
+      REDIS_HOST: "cache"
+      DB_CONNECTION: "mariadb"
+      DB_HOST: "database"
+      DB_PORT: "3306"
+
+volumes:
+  paymenter_db:
+  paymenter_storage:
