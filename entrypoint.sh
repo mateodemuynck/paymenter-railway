@@ -17,7 +17,7 @@ else
 
     php artisan app:init "$COMPANY_NAME" "$APP_URL"
     php artisan db:seed --class=CustomPropertySeeder --force
-    php artisan app:user:create "CHANGEME" "CHANGEME" "$ADMIN_EMAIL" "$ADMIN_PASSWORD" "admin"
+    php artisan app:user:create "CHANGEME" "CHANGEME" "$ADMIN_EMAIL" "$ADMIN_PASSWORD" 1
 fi
 
 exec "$@"
